@@ -108,7 +108,6 @@ const RecipientRow = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const isExpandable = interaction.sentTime || interaction.opens.length > 0;
-
   return (
     <>
       <tr
@@ -118,11 +117,7 @@ const RecipientRow = ({
         <td>
           <div className="user-info">
             {interaction.user.avatarUrl ? (
-              <img
-                src={interaction.user.avatarUrl}
-                alt={`${interaction.user.firstName} ${interaction.user.lastName}`}
-                className="user-avatar"
-              />
+              <img src={interaction.user.avatarUrl} className="user-avatar" />
             ) : (
               <InitialsAvatar
                 firstName={interaction.user.firstName}
@@ -160,7 +155,7 @@ const RecipientRow = ({
         </td>
       </tr>
       {isExpanded && isExpandable && (
-        <tr className="details-row">
+        <tr>
           <td colSpan={2}>
             <div className="details-container">
               <h4
@@ -228,7 +223,6 @@ export const AnalyticsEmailOpenViewer = ({
   enablecsvdownload = false,
 }: AnalyticsEmailOpenViewerProps): ReactElement => {
   const WIDGET_SCOPE_CLASS = "individual-email-widget";
-
   const [currentView, setCurrentView] = useState<"list" | "detail">(
     allemailsview ? "list" : "detail",
   );
@@ -399,15 +393,15 @@ export const AnalyticsEmailOpenViewer = ({
 
   const handleSort = (key: "recipient" | "status") => {
     setSortConfig((prev) => {
-      const isNewKey = prev.key !== key;
       if (key === "recipient") {
-        if (isNewKey) return { key: "recipient", direction: "ascending" };
+        if (prev.key !== key)
+          return { key: "recipient", direction: "ascending" };
         if (prev.direction === "ascending")
           return { key: "recipient", direction: "descending" };
         return { key: null, direction: "original" };
       }
       if (key === "status") {
-        if (isNewKey) return { key: "status", direction: "descending" };
+        if (prev.key !== key) return { key: "status", direction: "descending" };
         if (prev.direction === "descending")
           return { key: "status", direction: "ascending" };
         return { key: null, direction: "original" };
@@ -546,19 +540,16 @@ export const AnalyticsEmailOpenViewer = ({
   return (
     <div className={WIDGET_SCOPE_CLASS}>
       <style>{getScopedWidgetStyles(WIDGET_SCOPE_CLASS)}</style>
-
       {loading && <div className="message-container">Loading...</div>}
       {error && <div className="message-container">{error}</div>}
-
       {!loading && !error && currentView === "list" && (
         <>
           <div className="widget-header list-view">
             <h3 className="widget-title">Sent Email Overview</h3>
             <div className="date-controls">
-              <label htmlFor="sinceDate">From:</label>
+              <label>From:</label>
               <input
                 type="datetime-local"
-                id="sinceDate"
                 value={toInputDateTimeString(sinceDate)}
                 onChange={(e) => {
                   setEmailListPage(0);
@@ -566,10 +557,9 @@ export const AnalyticsEmailOpenViewer = ({
                 }}
                 max={nowString}
               />
-              <label htmlFor="untilDate">To:</label>
+              <label>To:</label>
               <input
                 type="datetime-local"
-                id="untilDate"
                 value={toInputDateTimeString(untilDate)}
                 onChange={(e) => {
                   setEmailListPage(0);
@@ -619,9 +609,8 @@ export const AnalyticsEmailOpenViewer = ({
               </div>
               <div className="pagination-controls">
                 <div className="page-size-control">
-                  <label htmlFor="email-page-size">Show:</label>
+                  <label>Show:</label>
                   <select
-                    id="email-page-size"
                     value={emailsPerPage}
                     onChange={(e) => {
                       setEmailsPerPage(Number(e.target.value));
@@ -657,7 +646,6 @@ export const AnalyticsEmailOpenViewer = ({
           )}
         </>
       )}
-
       {!loading && !error && currentView === "detail" && (
         <>
           <div className="widget-header">
@@ -737,11 +725,8 @@ export const AnalyticsEmailOpenViewer = ({
               <table className="performance-table">
                 <thead>
                   <tr>
-                    <th role="button" onClick={() => handleSort("recipient")}>
-                      Recipient
-                    </th>
+                    <th onClick={() => handleSort("recipient")}>Recipient</th>
                     <th
-                      role="button"
                       style={{ width: "120px" }}
                       onClick={() => handleSort("status")}
                     >
@@ -799,4 +784,3 @@ export const AnalyticsEmailOpenViewer = ({
     </div>
   );
 };
-//test
