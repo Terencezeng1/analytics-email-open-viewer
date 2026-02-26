@@ -16,6 +16,10 @@ import { JSONSchema7 } from "json-schema";
 
 export const configurationSchema: JSONSchema7 = {
   properties: {
+    apikey: {
+      type: "string",
+      title: "Staffbase API Key",
+    },
     allemailsview: {
       type: "boolean",
       title: "All Emails View",
@@ -38,10 +42,10 @@ export const configurationSchema: JSONSchema7 = {
       default: 5,
     },
     defaultRecipientPageSize: {
-        type: "number",
-        title: "Default Page Size (Recipients)",
-        enum: [5, 10, 20, 50],
-        default: 5,
+      type: "number",
+      title: "Default Page Size (Recipients)",
+      enum: [5, 10, 20, 50],
+      default: 5,
     },
     enablecsvdownload: {
       type: "boolean",
@@ -77,27 +81,38 @@ export const configurationSchema: JSONSchema7 = {
 };
 
 export const uiSchema: UiSchema = {
+  apikey: {
+    "ui:widget": "password",
+    "ui:help": "Enter your Administrative API Token (Studio Secret).",
+    "ui:placeholder": "Paste your secret here",
+  },
   allemailsview: {
-    "ui:help": "If checked, displays a list of all sent emails. If unchecked, tracks a single email by its ID.",
+    "ui:help":
+      "If checked, displays a list of all sent emails. If unchecked, tracks a single email by its ID.",
   },
   emailid: {
     "ui:help": "Enter the ID of the specific email to analyze.",
     "ui:placeholder": "e.g., 68caf97a86ba5b5d9deec780",
   },
   domain: {
-    "ui:help": "The domain of your Staffbase instance where the API is located.",
+    "ui:help":
+      "The domain of your Staffbase instance where the API is located.",
     "ui:placeholder": "e.g., app.staffbase.com",
   },
   emaillistlimit: {
-    "ui:help": "The maximum number of recent emails to fetch from the API for the 'All Emails View'.",
+    "ui:help":
+      "The maximum number of recent emails to fetch from the API for the 'All Emails View'.",
   },
   defaultEmailPageSize: {
-    "ui:help": "The default number of emails to show per page on the overview list.",
+    "ui:help":
+      "The default number of emails to show per page on the overview list.",
   },
   defaultRecipientPageSize: {
-    "ui:help": "The default number of recipients to show per page on the individual tracking page.",
+    "ui:help":
+      "The default number of recipients to show per page on the individual tracking page.",
   },
   enablecsvdownload: {
-    "ui:help": "If checked, adds a button to the detail view to download recipient interaction data as a CSV file.",
+    "ui:help":
+      "If checked, adds a button to the detail view to download recipient interaction data as a CSV file.",
   },
 };
