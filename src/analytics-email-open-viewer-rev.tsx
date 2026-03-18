@@ -428,6 +428,11 @@ export const AnalyticsEmailOpenViewer = ({
       "Interaction Type",
       "Interaction Time",
       "Clicked URL",
+      "Position",
+      "Department",
+      "Location",
+      "Public Email Address",
+      "Phone Number",
     ];
     const csvRows = [headers.join(",")];
     for (const interaction of filteredRecipients) {
@@ -435,6 +440,11 @@ export const AnalyticsEmailOpenViewer = ({
         escapeCsvField(interaction.user.firstName),
         escapeCsvField(interaction.user.lastName),
         escapeCsvField(interaction.user.id),
+        escapeCsvField(interaction.user.position),
+        escapeCsvField(interaction.user.department),
+        escapeCsvField(interaction.user.location),
+        escapeCsvField(interaction.user.publicEmailAddress),
+        escapeCsvField(interaction.user.phoneNumber),
       ];
       if (interaction.sentTime)
         csvRows.push(

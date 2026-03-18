@@ -15,7 +15,7 @@ import * as webpack from "webpack";
 
 const config: webpack.Configuration = {
   entry: {
-    "staffbase.analytics-email-open-viewer": "./src/index.tsx",
+    "staffbase.analytics-email-open-viewer-rev": "./src/index.tsx",
   },
   module: {
     rules: [
@@ -29,7 +29,7 @@ const config: webpack.Configuration = {
         use: [{ loader: "@svgr/webpack", options: { icon: true } }],
       },
       {
-        test: /analytics-email-open-viewer\.svg$/,
+        test: /analytics-email-open-viewer-rev\.svg$/,
         use: [
           {
             loader: "url-loader",

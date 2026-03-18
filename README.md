@@ -1,4 +1,4 @@
-# staffbase / analytics-email-open-viewer
+# staffbase / analytics-email-open-viewer-rev
 
 ## Installation
 

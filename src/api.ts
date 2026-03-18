@@ -76,7 +76,7 @@ const fetchUserProfile = async (
 ): Promise<UserProfile> => {
   if (userProfileCache.has(userId)) return userProfileCache.get(userId)!;
   const baseUrl = `https://${domain}`;
-  const url = `${baseUrl}/api/profiles/public/${userId}`;
+  const url = `${baseUrl}/api/users/${userId}`;
   const response = await authenticatedFetch(url);
   const user = await response.json();
   userProfileCache.set(userId, user);
