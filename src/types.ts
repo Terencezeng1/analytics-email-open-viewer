@@ -31,6 +31,12 @@ export interface UserProfile {
   firstName: string;
   lastName: string;
   avatarUrl: string | null; // Can be null if no avatar is set
+  position: string | null; // Can be null if no position is set
+  department: string | null; // Can be null if no department is set
+  location: string | null; // Can be null if no location is set
+  publicEmailAddress: string | null; // Can be null if no public email is set
+  phoneNumber: string | null; // Can be null if no phone number is set
+  system_manager: string | null; // Can be null if no system manager is set
 }
 
 /**

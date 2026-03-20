@@ -24,7 +24,7 @@ describe("Widget test", () => {
   });
 
   it("should render the widget", async () => {
-    const widget = document.createElement("analytics-email-open-viewer");
+    const widget = document.createElement("analytics-email-open-viewer-rev");
     widget.setAttribute("message", "World");
     await import("./index");
     document.body.appendChild(widget);

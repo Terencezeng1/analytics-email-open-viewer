@@ -15,7 +15,7 @@ import * as webpack from "webpack";
 
 const config: webpack.Configuration = {
   entry: {
-    "staffbase.analytics-email-open-viewer": "./src/index.tsx",
+    "staffbase.analytics-email-open-viewer-rev": "./src/index.tsx",
   },
   module: {
     rules: [

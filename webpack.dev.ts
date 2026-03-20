@@ -19,7 +19,7 @@ import "webpack-dev-server";
 
 const config: webpack.Configuration = merge(common, {
   entry: {
-    "staffbase.analytics-email-open-viewer": "./src/dev.ts",
+    "staffbase.analytics-email-open-viewer-rev": "./src/dev.ts",
     config: "./dev/config.tsx",
     bootstrap: "./dev/bootstrap.ts",
   },

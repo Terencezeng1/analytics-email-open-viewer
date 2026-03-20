@@ -21,7 +21,7 @@ import {
 import {
   AnalyticsEmailOpenViewerProps,
   AnalyticsEmailOpenViewer,
-} from "./analytics-email-open-viewer";
+} from "./analytics-email-open-viewer-rev";
 import { configurationSchema, uiSchema } from "./configuration-schema";
 import icon from "../resources/analytics-email-open-viewer.svg";
 import pkg from "../package.json";
@@ -71,13 +71,13 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
 };
 
 const blockDefinition: BlockDefinition = {
-  name: "analytics-email-open-viewer",
+  name: "analytics-email-open-viewer-rev",
   factory: factory,
   attributes: widgetAttributes,
   blockLevel: "block",
   configurationSchema: configurationSchema,
   uiSchema: uiSchema,
-  label: "Email Performance Tracker",
+  label: "Email Performance Tracker Rev",
   iconUrl: icon,
 };
 

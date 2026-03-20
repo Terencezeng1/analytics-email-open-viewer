@@ -1,7 +1,7 @@
 import React from "react"
 import {screen, render} from "@testing-library/react"
 
-import {AnalyticsEmailOpenViewer} from "./analytics-email-open-viewer";
+import {AnalyticsEmailOpenViewer} from "./analytics-email-open-viewer-rev";
 
 describe("AnalyticsEmailOpenViewer", () => {
     it("should render the component", () => {

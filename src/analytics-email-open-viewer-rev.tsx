@@ -425,6 +425,12 @@ export const AnalyticsEmailOpenViewer = ({
       "First Name",
       "Last Name",
       "User ID",
+      "Position",
+      "Department",
+      "Location",
+      "Public Email Address",
+      "Phone Number",
+      "Manager",
       "Interaction Type",
       "Interaction Time",
       "Clicked URL",
@@ -435,6 +441,12 @@ export const AnalyticsEmailOpenViewer = ({
         escapeCsvField(interaction.user.firstName),
         escapeCsvField(interaction.user.lastName),
         escapeCsvField(interaction.user.id),
+        escapeCsvField(interaction.user.position),
+        escapeCsvField(interaction.user.department),
+        escapeCsvField(interaction.user.location),
+        escapeCsvField(interaction.user.publicEmailAddress),
+        escapeCsvField(interaction.user.phoneNumber),
+        escapeCsvField(interaction.user.profile.system_manager)
       ];
       if (interaction.sentTime)
         csvRows.push(
@@ -465,6 +477,7 @@ export const AnalyticsEmailOpenViewer = ({
           );
         }
       }
+      
     }
     const blob = new Blob([csvRows.join("\n")], {
       type: "text/csv;charset=utf-8;",
